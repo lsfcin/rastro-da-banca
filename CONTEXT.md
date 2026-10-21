@@ -11,9 +11,9 @@ primeiro é o exemplo oficial, intacto; o segundo é a alteração mínima. Não
 <!-- routing:start -->
 ## Routing
 
-| File | Interface | Description |
-|------|-----------|-------------|
-| [`README.md`](README.md) | — | rastro da banca |
-| [`requirements.txt`](requirements.txt) | — | requirements.txt — a única dependência do exemplo, na versão em que ele foi rodado. |
-| [`transcrever.py`](transcrever.py) | [`transcrever.pyi`](transcrever.pyi) | transcrever.py — o exemplo oficial do faster-whisper, copiado do README do projeto (https://github.com/SYSTRAN/faster-whisper, seção "Usage", licença MIT). Duas escolhas, ambas previstas no próprio README: a linha do CPU (a maioria das máquinas não tem GPU) e o modelo "small" (cerca de 500 MB, roda num notebook comum). O audio.mp3 é o jfk.flac dos testes do… |
+| File | Interface | API | Description |
+|------|-----------|-----|-------------|
+| [`README.md`](README.md) | — | — | rastro da banca |
+| [`requirements.txt`](requirements.txt) | — | — | requirements.txt — a única dependência do exemplo, na versão em que ele foi rodado. |
+| [`transcrever.py`](transcrever.py) | [`transcrever.pyi`](transcrever.pyi) | `extrair_pedido` | transcrever.py — o exemplo oficial do faster-whisper (README do projeto, seção "Usage", licença MIT), com a entrada e a saída trocadas para a feira: entra o áudio de um pedido mandado à banca, sai o pedido (produto, quantidade, hora de buscar), tirado da transcrição por um modelo pequeno local (qwen3:4b no Ollama, licença Apache 2.0). |
 <!-- routing:end -->
