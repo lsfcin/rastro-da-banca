@@ -1,0 +1,2 @@
+# requirements.txt — a única dependência do exemplo, na versão em que ele foi rodado.
+faster-whisper==1.2.1
