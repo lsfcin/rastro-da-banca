@@ -15,6 +15,10 @@ depois mudar só a entrada e a saída para o problema dele.
 
 Para ver só o que mudou: o diff do segundo commit.
 
+Os dois commits seguintes são do artefato **fluxograma e arquitetura**
+([guia](https://lucassf.pages.dev/ai4good/flx)): [`arquitetura.md`](arquitetura.md) desenha o
+caminho do pedido, passo a passo, e diz onde roda cada peça e para onde vai cada dado pessoal.
+
 ## como rodar
 
 ```bash
