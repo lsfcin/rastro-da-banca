@@ -1,0 +1,14 @@
+# banca.tsv — a lista da banca de dona Cida: produto, outros nomes que a cliente usa, unidade de venda e preço em R$.
+produto	outros nomes	unidade	preço
+macaxeira	mandioca,aipim	kg	6.00
+jerimum	abóbora	kg	5.00
+feijão verde		kg	14.00
+coentro		molho	2.50
+cebolinha		molho	2.50
+alface		pé	3.00
+tomate		kg	8.00
+batata-doce		kg	5.50
+inhame		kg	9.00
+maracujá		kg	10.00
+ovos caipira	ovo caipira,ovos	dúzia	15.00
+banana prata		cacho	12.00

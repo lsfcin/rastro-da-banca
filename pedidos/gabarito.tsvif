@@ -1,0 +1,11 @@
+# gabarito.tsvif — CSV interface (auto-generated)
+file: gabarito.tsv
+shape: 31 rows × 2 cols
+columns:
+  - # gabarito.tsv — os pedidos do piloto: o que a cliente fala, o pedido certo (produto|quantidade|unidade; "?" = fora da lista) e a hora; lista = metade do E2.
+  - None
+head:
+  # gabarito.tsv — os   None: ['lista', 'tip
+  # gabarito.tsv — os   None: ['L1', 'normal
+  # gabarito.tsv — os   None: ['L2', 'normal
+description: TODO — run: Core/tools/assets/inspect <file> --desc "one-line description"

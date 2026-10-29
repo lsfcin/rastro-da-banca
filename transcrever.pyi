@@ -1,13 +1,9 @@
 from _typeshed import Incomplete
 
-model_size: str
-model: Incomplete
+def carregar_modelo(model_size: str = 'small'): ...
+
 CONTEXTO: str
 PEDIDO: Incomplete
 
 def extrair_pedido(texto): ...
-
-segments: Incomplete
-info: Incomplete
-texto: Incomplete
-pedido: Incomplete
+def transcrever(model, audio, contexto=...): ...

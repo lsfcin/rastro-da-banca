@@ -19,22 +19,31 @@ Os dois commits seguintes são do artefato **fluxograma e arquitetura**
 ([guia](https://lucassf.pages.dev/ai4good/flx)): [`arquitetura.md`](arquitetura.md) desenha o
 caminho do pedido, passo a passo, e diz onde roda cada peça e para onde vai cada dado pessoal.
 
+Os commits depois deles são do artefato **desenho dos experimentos**
+([guia](https://lucassf.pages.dev/ai4good/exp)): primeiro o pré-registro,
+[`experimentos.md`](experimentos.md), com as hipóteses e o número que derruba cada uma; depois as
+regras que substituem o qwen (`regras.py`) e os dois pilotos, com as tabelas em [`resultados/`](resultados/).
+
 ## como rodar
 
 ```bash
 pip install -r requirements.txt
-ollama pull qwen3:4b                    # o modelo pequeno que tira o pedido do texto
 python transcrever.py audios/pedido-*.ogg
+python avaliar.py                       # piloto do E1; a ablação do qwen pede: ollama pull qwen3:4b
+python simular_feirante.py              # piloto do E2; pede GEMINI_API_KEY, ou usa as respostas guardadas
 ```
 
-Na primeira vez os modelos são baixados (cerca de 3 GB, os dois). Roda em CPU, sem GPU.
-Para rodar o commit 1 (o exemplo oficial): `git checkout HEAD~1 && python transcrever.py`.
+Na primeira vez o whisper é baixado (cerca de 0,5 GB; com o qwen, 3 GB). Roda em CPU, sem GPU.
+Para rodar o commit 1 (o exemplo oficial): `git checkout 89a3ba4 && python transcrever.py`.
 
 ## de onde vem cada coisa
 
 | peça | o que faz aqui | origem | licença |
 |:--|:--|:--|:--|
 | faster-whisper | **técnica central**: transforma o áudio em texto | [SYSTRAN/faster-whisper](https://github.com/SYSTRAN/faster-whisper) | MIT |
-| qwen3:4b, no Ollama | apoio: tira produto, quantidade e hora do texto | [Qwen3](https://huggingface.co/Qwen/Qwen3-4B), [Ollama](https://github.com/ollama/ollama) | Apache 2.0 · MIT |
+| regras (`regras.py`, `banca.tsv`) | tiram produto, quantidade e hora do texto, sem IA | escritas aqui | MIT |
+| qwen3:4b, no Ollama | só na ablação do E1: o que as regras substituíram | [Qwen3](https://huggingface.co/Qwen/Qwen3-4B), [Ollama](https://github.com/ollama/ollama) | Apache 2.0 · MIT |
 | `audio.mp3` | o áudio de teste do exemplo oficial | `tests/data/jfk.flac` do faster-whisper, convertido | MIT |
 | `audios/pedido-*.ogg` | três pedidos de feira, com ruído de fundo | voz sintética [Piper](https://github.com/rhasspy/piper), `pt_BR-faber-medium` | CC0 |
+| `audios/e1/*.ogg` | os 30 pedidos do gabarito, em 3 níveis de ruído (`gerar_audios.py`) | Piper, vozes `pt_BR` faber, cadu, jeff e edresson | CC0 |
+| a persona do E2 | faz o papel da feirante no piloto, ouvindo o áudio | Gemini (`gemini-3.5-flash`), pela API do Google | termos da API |
