@@ -1,0 +1,71 @@
+# rastro da banca · desenho dos experimentos
+
+O pré-registro dos dois experimentos: hipótese, linha de base, o número que derruba, métricas,
+ablações, dados e ética, escritos antes de ver o resultado. Exemplo do artefato **desenho dos
+experimentos** da disciplina AI4Good ([guia](https://lucassf.pages.dev/ai4good/exp)).
+
+## E1 · a técnica: o pedido sai certo do áudio?
+
+- **molde:** SLURP (Bastianelli et al., [EMNLP 2020](https://doi.org/10.18653/v1/2020.emnlp-main.588)):
+  medir a tarefa, não só as palavras.
+- **hipótese:** com o áudio de uma feira (10 dB de relação sinal-ruído), no máximo 1 em cada 10
+  pedidos sai errado **sem aviso** ("?"), e a transcrição leva menos tempo que o próprio áudio.
+- **linha de base, sem IA:** a regra sozinha sobre o texto que a cliente falou (o gabarito): o teto
+  das regras, sem o erro da transcrição.
+- **derruba se:** errado sem aviso acima de 10% a 10 dB, ou tempo / áudio acima de 1, com 30 pedidos.
+- **métricas:** pedido exato; errado com "?" (sinalizado); errado sem aviso (silencioso); F1 dos
+  itens; WER, com números e unidades normalizados ("2 kg" = "dois quilos"); tempo / áudio; intervalo
+  de 95% por bootstrap sobre os pedidos.
+- **ablações:** sem a lista da banca como contexto; whisper `tiny` e `base`; qwen3:4b no lugar das
+  regras, com a saída traduzida para os nomes da banca; três níveis de ruído (limpo, 10 dB, 0 dB).
+
+## E2 · quem usa: a feirante erra menos com o app do que hoje?
+
+- **molde:** Patel et al., fala × teclado ([CHI 2009](https://doi.org/10.1145/1518701.1518709)):
+  intra-sujeitos, tarefa cronometrada, com quem vai usar.
+- **hipótese:** conferindo a tela do app (passo 7), a feirante termina com menos pedidos errados que
+  ouvindo e anotando, e corrige no máximo 1 em cada 3 pedidos.
+- **linha de base, sem IA:** a prática de hoje: ouvir o áudio e anotar no caderno.
+- **derruba se:** pedidos errados no fim, com o app, iguais ou acima dos sem o app; ou mais de 1
+  correção a cada 3 pedidos.
+- **desenho:** cada feirante faz as duas condições, A (hoje) e B (app), com duas listas de 15
+  pedidos equivalentes (L1, L2), em quadrado latino: metade começa por A, metade por B, e ninguém
+  ouve o mesmo áudio duas vezes.
+- **métricas:** pedido final exato e errado; correções por pedido; vezes que tocou "ouvir"; erros
+  silenciosos do app confirmados sem ouvir (viés de automação); tempo por pedido; carga de trabalho
+  (NASA-TLX reduzido, oral); entrevista curta. Comportamento vale mais que preferência
+  (Dell et al., [CHI 2012](https://doi.org/10.1145/2207676.2208638)).
+
+## dados e participantes
+
+| | E1 | E2 |
+|:--|:--|:--|
+| quem | 10 falantes da região, clientes de feira, que leem um cartão com os itens e falam do seu jeito | 6 a 8 feirantes da agricultura familiar |
+| quantos, e por quê | 10 pedidos cada, 100 no total: o intervalo de 95% de uma taxa de 10% fica em ±6 pontos | o tamanho comum de estudos intra-sujeitos na CHI (Caine, [CHI 2016](https://doi.org/10.1145/2858036.2858498)); o efeito é medido por pessoa |
+| coleta | áudio pelo WhatsApp, gravado na feira (ruído real) | numa feira, com os áudios do E1, cronometrado no app |
+| gabarito | duas pessoas anotam cada pedido; a concordância (κ) é reportada | o mesmo do E1 |
+| ajuste × teste | 3 falantes para ajustar as regras, 7 para o teste; o teste não é olhado antes | — |
+| consentimento | TCLE lido em voz alta e aceito em áudio (Res. CNS 510/2016) | o mesmo, e a pessoa pode parar quando quiser |
+| comitê de ética | projeto ao CEP da UFRPE pela Plataforma Brasil (Res. 466/2012, 510/2016, Lei 14.874/2024) | o mesmo projeto |
+| dados pessoais | os áudios ficam no notebook da pesquisa até o gabarito e são apagados; o gabarito não tem nome (LGPD) | só o número do participante; nada de voz da feirante é gravado |
+
+## o piloto do semestre, sem pessoas de fora
+
+O E1 roda com voz sintética (Piper, 4 vozes) e burburinho de outras falas; o E2, com uma persona
+de IA no papel da feirante. Os dois testam o desenho e os scripts. **Nenhum dos dois diz nada
+sobre pessoas** (Agnew et al., [CHI 2024](https://doi.org/10.1145/3613904.3642703)).
+
+```bash
+python gerar_audios.py <piper> <pasta das vozes> <pasta de rascunho>   # os 90 áudios do piloto
+python avaliar.py                                                       # E1 → resultados/e1.md
+python simular_feirante.py                                              # E2 → resultados/e2.md (GEMINI_API_KEY)
+```
+
+## termo de consentimento (lido em voz alta)
+
+> Esta é uma pesquisa da UFRPE sobre um aplicativo que transforma áudio de pedido em lista. Você
+> vai [E1: ler um pedido de feira em voz alta, do seu jeito] [E2: conferir pedidos, com e sem o
+> aplicativo]. Leva uns 20 minutos. Não tem risco além do cansaço, e você pode parar quando quiser,
+> sem explicar. Sua voz fica guardada só até a gente escrever o que foi dito, e depois é apagada.
+> Seu nome não aparece em lugar nenhum. Se tiver dúvida, fale com [pesquisador, telefone] ou com o
+> comitê de ética da UFRPE. Você aceita participar? Pode responder "aceito" nesta gravação.
