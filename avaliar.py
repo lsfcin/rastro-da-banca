@@ -116,7 +116,7 @@ def _resumir(linhas, cargas, sorteio):
                           f"{silencioso[0]:.0%} [{silencioso[1]:.0%}–{silencioso[2]:.0%}] | {f1:.2f} | {np.mean(wers):.2f} | {rtf:.2f} |")
     tabela.append("")
     tabela.append("carga do modelo, em segundos: " + ", ".join(f"{tamanho} {segundos:.1f}" for tamanho, segundos in cargas.items()))
-    (RESULTADOS / "e1.md").write_text("\n".join(tabela) + "\n", encoding="utf-8")
+    (RESULTADOS / "e1.md").write_text("# E1 · piloto da bancada técnica\n\n" + "\n".join(tabela) + "\n", encoding="utf-8")
     print("\n".join(tabela))
 
 

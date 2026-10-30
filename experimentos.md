@@ -61,6 +61,19 @@ python avaliar.py                                                       # E1 →
 python simular_feirante.py                                              # E2 → resultados/e2.md (GEMINI_API_KEY)
 ```
 
+## emendas, depois do piloto (30/10/2026)
+
+O pré-registro acima fica como foi escrito. O que um revisor externo achou nele, e o que muda:
+
+1. **o molde do E2 não é intra-sujeitos:** Patel et al. (CHI 2009) compararam fala e teclado com 45
+   agricultores divididos entre as condições. o E2 continua intra-sujeitos, por outro motivo: com
+   poucas feirantes, cada uma comparada com ela mesma.
+2. **"6 a 8 é o tamanho comum" não está em Caine (CHI 2016):** ele mostra que o tamanho varia com o
+   método. com 8, o E2 mostra a direção e o tamanho da diferença por pessoa, não uma taxa.
+3. **a margem do E1 é ±7, não ±6:** com 3 falantes no ajuste, o teste tem 70 pedidos.
+4. **os áudios ficam até o fim do E2,** que os reusa, e não só até o gabarito.
+5. **o limiar não muda.**
+
 ## termo de consentimento (lido em voz alta)
 
 > Esta é uma pesquisa da UFRPE sobre um aplicativo que transforma áudio de pedido em lista. Você
