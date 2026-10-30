@@ -19,7 +19,7 @@ flowchart TD
         D["4 · achar cada produto na lista da banca; fora da lista vira '?'"]
         E["5 · quantidade e unidade: tabela de palavras ('uma dúzia' = 12, 'meio quilo' = 0,5 kg)"]
         F["6 · hora de buscar: tabela de expressões ('lá pelas dez e meia' = 10:30)"]
-        G(["7 · feirante ouve o áudio, confere o pedido na tela, corrige o '?' e escreve o primeiro nome de quem pediu"])
+        G(["7 · a tela abre no '?' e toca o áudio; o feirante confere, corrige e escreve o primeiro nome de quem pediu"])
         H["8 · conta: preço da banca × quantidade"]
         I(["9 · feirante compartilha a confirmação de volta no WhatsApp"])
         K["11 · no dia da feira: lista de separação, ordenada pela hora de buscar"]
@@ -39,6 +39,7 @@ flowchart TD
 | áudio do pedido (a voz) | cliente | cópia no app, no celular do feirante | feirante | até o pedido ser confirmado; o app apaga a cópia |
 | texto transcrito | cliente | memória do app | ninguém além do app | some com o áudio |
 | primeiro nome e pedido | cliente | pedidos do dia, no celular do feirante | feirante | até o fim da feira; fica só o total vendido, sem nome |
+| registro de correções (sem áudio nem nome) | da banca | celular do feirante | feirante, e a pesquisa se ele aceitar | até o fim do experimento |
 
 Nada sai do celular do feirante além da confirmação, pelo WhatsApp que a banca já usa. O app não
 guarda telefone: a conversa já está no WhatsApp.
