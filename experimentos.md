@@ -94,6 +94,10 @@ novas são exploratórias, e um segundo revisor externo leu o desenho antes de r
     avisado, mesmo com outro campo errado calado; e repetir o "?" de um produto fora da lista conta
     como exato. o experimento real mede erro e aviso por campo (produto, quantidade, hora). os 20%
     ficam como estão.
+11. **o que a auditoria cega da folha achou:** o DOI de Dell et al. acima aponta para outro artigo;
+    o certo é [10.1145/2207676.2208589](https://doi.org/10.1145/2207676.2208589). o TCLE abaixo diz
+    que a voz fica guardada só até o gabarito; pela emenda 4, ela fica até o fim do E2, e o TCLE do
+    experimento real diz isso. a linha de base do E1 passa a sair do `avaliar.py`.
 
 ## termo de consentimento (lido em voz alta)
 
