@@ -137,10 +137,10 @@ def avaliar():
     pedidos, banca, medidas = ler_gabarito(), ler_banca(), _ja_medidas()
     linhas = [linha for condicao in CONDICOES for linha in (medidas.get(condicao) or _medir(condicao, pedidos, banca))]
     _escrever_tsv(RESULTADOS / "e1-pedidos.tsv", linhas)
-    _resumir(linhas, np.random.default_rng(7))
+    _resumir(linhas, np.random.default_rng(7), [julgar(certo, regras.extrair_pedido(certo["fala"], banca)) for certo in pedidos])
 
 
-def _resumir(linhas, sorteio):
+def _resumir(linhas, sorteio, base):
     cabecalho = "| condição | ruído | pedido exato | errado com \"?\" | errado sem aviso | F1 dos itens | WER | tempo / áudio |"
     tabela = [cabecalho, "|" + ":--|" * 2 + "--:|" * 6]
     for condicao in CONDICOES:
@@ -155,6 +155,10 @@ def _resumir(linhas, sorteio):
             rtf = np.mean([linha["rtf"] for linha in grupo])
             tabela.append(f"| {condicao} | {ruido} | {exato[0]:.0%} [{exato[1]:.0%}–{exato[2]:.0%}] | {sinalizado:.0%} | "
                           f"{silencioso[0]:.0%} [{silencioso[1]:.0%}–{silencioso[2]:.0%}] | {f1:.2f} | {np.mean(wers):.2f} | {rtf:.2f} |")
+    # a linha de base vai por último, sem sorteio: o intervalo das outras não muda
+    f1_base = 2 * sum(j["acertos"] for j in base) / sum(j["itens_certos"] + j["itens_saida"] for j in base)
+    tabela.append(f"| linha de base: as regras sobre o que a cliente falou | — | {np.mean([j['exato'] for j in base]):.0%} | "
+                  f"{np.mean([j['sinalizado'] for j in base]):.0%} | {np.mean([j['silencioso'] for j in base]):.0%} | {f1_base:.2f} | — | — |")
     tabela.append("")
     cargas = {CONDICOES[linha["condicao"]][0]: linha["carga"] for linha in linhas}
     tabela.append("carga do modelo, em segundos: " + ", ".join(f"{tamanho} {segundos:.1f}" for tamanho, segundos in cargas.items()))
