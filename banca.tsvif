@@ -1,0 +1,11 @@
+# banca.tsvif — CSV interface (auto-generated)
+file: banca.tsv
+shape: 13 rows × 2 cols
+columns:
+  - # banca.tsv — a lista da banca de dona Cida: produto, outros nomes que a cliente usa, unidade de venda e preço em R$.
+  - None
+head:
+  # banca.tsv — a list  None: ['outros nomes
+  # banca.tsv — a list  None: ['mandioca,aip
+  # banca.tsv — a list  None: ['abóbora', 'k
+description: TODO — run: Core/tools/assets/inspect <file> --desc "one-line description"

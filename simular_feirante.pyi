@@ -1,0 +1,9 @@
+from _typeshed import Incomplete
+
+RUIDO: str
+OUVIDO: str
+EXECUCOES: Incomplete
+
+def condicao_a(persona, ouvido, semente): ...
+def condicao_b(persona, ouvido, semente, tela): ...
+def simular() -> None: ...

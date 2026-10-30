@@ -1,17 +1,19 @@
 # transcrever.py — o exemplo oficial do faster-whisper (README do projeto, seção "Usage", licença
 # MIT), com a entrada e a saída trocadas para a feira: entra o áudio de um pedido mandado à banca,
-# sai o pedido (produto, quantidade, hora de buscar), tirado da transcrição por um modelo pequeno
-# local (qwen3:4b no Ollama, licença Apache 2.0).
+# sai o pedido (produto, quantidade, hora de buscar), tirado da transcrição pelas regras de regras.py.
+# o modelo pequeno local (qwen3:4b no Ollama, licença Apache 2.0) ficou só para a ablação do experimento.
 import json
 import sys
 import urllib.request
 
 from faster_whisper import WhisperModel
 
-model_size = "small"
+import regras
 
-# or run on CPU with INT8
-model = WhisperModel(model_size, device="cpu", compute_type="int8")
+
+def carregar_modelo(model_size="small"):
+    # or run on CPU with INT8
+    return WhisperModel(model_size, device="cpu", compute_type="int8")
 
 # entrada: uma frase como a cliente diria primeiro ensina ao modelo as palavras da banca
 CONTEXTO = ("Pedido por áudio para a banca de dona Cida, na feira: me separa um molho de coentro, macaxeira, "
@@ -39,11 +41,17 @@ def extrair_pedido(texto):
         return json.loads(json.loads(resposta.read())["response"])
 
 
-for audio in sys.argv[1:]:
-    segments, info = model.transcribe(audio, beam_size=5, language="pt", initial_prompt=CONTEXTO)
-    texto = " ".join(segment.text.strip() for segment in segments)
-    pedido = extrair_pedido(texto)
-    print(f"\n{audio}\n  ouvido: {texto}")
-    for item in pedido["itens"]:
-        print(f"  - {item['quantidade']:g} {item['unidade']} de {item['produto']}")
-    print(f"  buscar às {pedido['buscar_as']}")
+def transcrever(model, audio, contexto=CONTEXTO):
+    segments, info = model.transcribe(audio, beam_size=5, language="pt", initial_prompt=contexto)
+    return " ".join(segment.text.strip() for segment in segments)
+
+
+if __name__ == "__main__":
+    model = carregar_modelo()
+    for audio in sys.argv[1:]:
+        texto = transcrever(model, audio)
+        pedido = regras.extrair_pedido(texto)
+        print(f"\n{audio}\n  ouvido: {texto}")
+        for item in pedido["itens"]:
+            print(f"  - {item['quantidade']:g} {item['unidade']} de {item['produto']}")
+        print(f"  buscar às {pedido['buscar_as']}")

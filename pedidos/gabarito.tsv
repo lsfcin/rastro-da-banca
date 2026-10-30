@@ -1,0 +1,32 @@
+# gabarito.tsv — os pedidos do piloto: o que a cliente fala, o pedido certo (produto|quantidade|unidade; "?" = fora da lista) e a hora; lista = metade do E2.
+id	lista	tipo	fala	itens	hora
+01	L1	normal	Bom dia, dona Cida. Me separa dois quilos de macaxeira e um molho de coentro, que eu passo pra buscar às nove.	macaxeira|2|kg; coentro|1|molho	09:00
+02	L2	normal	Oi, dona Cida, é o Raimundo. Uma dúzia de ovos caipira e meio quilo de feijão verde, viu? Pego lá pelas dez e meia.	ovos caipira|1|dúzia; feijão verde|0.5|kg	10:30
+03	L1	normal	Dona Cida, a senhora ainda tem jerimum? Se tiver, separa um pedaço de uns dois quilos e um cacho de banana prata. Busco umas onze.	jerimum|2|kg; banana prata|1|cacho	11:00
+04	L2	normal	Ô dona Cida, bota três pés de alface e um molho de cebolinha pra mim. Passo aí às oito e meia.	alface|3|pé; cebolinha|1|molho	08:30
+05	L1	normal	Bom dia! Quero um quilo de tomate e dois quilos de batata-doce. Vou buscar às dez.	tomate|1|kg; batata-doce|2|kg	10:00
+06	L2	normal	Dona Cida, separa duas dúzias de ovos caipira, por favor. Pego ao meio-dia.	ovos caipira|2|dúzia	12:00
+07	L1	normal	Oi, é a Socorro. Me guarda um quilo e meio de inhame e um molho de coentro. Às nove e quinze eu passo.	inhame|1.5|kg; coentro|1|molho	09:15
+08	L2	normal	Dona Cida, é... dois, não, bota três quilos de macaxeira. E um cacho de banana prata. Busco às sete e meia.	macaxeira|3|kg; banana prata|1|cacho	07:30
+09	L1	normal	Bom dia, minha filha. Meio quilo de feijão verde e um pedaço de jerimum de um quilo. Lá pelas onze eu chego.	feijão verde|0.5|kg; jerimum|1|kg	11:00
+10	L2	normal	Dona Cida, separa um quilo de maracujá e dois pés de alface. Passo às dez e meia.	maracujá|1|kg; alface|2|pé	10:30
+11	L1	normal	Oi, dona Cida! Me vê quatro quilos de batata-doce pra fazer doce. Busco às oito.	batata-doce|4|kg	08:00
+12	L2	normal	Dona Cida, é o Zé da padaria. Três dúzias de ovos caipira e dois molhos de cebolinha. Pego às sete.	ovos caipira|3|dúzia; cebolinha|2|molho	07:00
+13	L1	normal	Bom dia. Um molho de coentro, um molho de cebolinha e meio quilo de tomate. Às nove e meia eu busco.	coentro|1|molho; cebolinha|1|molho; tomate|0.5|kg	09:30
+14	L2	normal	Dona Cida, guarda dois cachos de banana prata pra mim? Passo ao meio-dia.	banana prata|2|cacho	12:00
+15	L1	normal	Me separa um quilo de jerimum e um quilo de macaxeira, que eu pego lá pelas dez.	jerimum|1|kg; macaxeira|1|kg	10:00
+16	L2	normal	Oi, dona Cida, aqui é a Fátima. Dois quilos de inhame e uma dúzia de ovos caipira. Às onze e meia.	inhame|2|kg; ovos caipira|1|dúzia	11:30
+17	L1	fora	Dona Cida, tem rúcula? Separa um molho de rúcula e um quilo de tomate. Busco às nove.	?|1|molho; tomate|1|kg	09:00
+18	L2	fora	Bom dia! Quero dois quilos de chuchu e meio quilo de feijão verde. Passo às dez.	?|2|kg; feijão verde|0.5|kg	10:00
+19	L1	fora	Dona Cida, me vê um quilo de quiabo. Pego às oito e meia.	?|1|kg	08:30
+20	L2	fora	Ô dona Cida, separa um maço de hortelã e dois pés de alface. Às onze.	?|1|molho; alface|2|pé	11:00
+21	L1	vazio	Bom dia, dona Cida! Só passando pra dizer que hoje não vou poder ir, viu? Semana que vem eu passo aí.
+22	L2	vazio	Dona Cida, a senhora vai estar na feira sábado?
+23	L2	ruído
+24	L1	normal	Bom dia, dona Cida. Meia dúzia de ovos caipira e um quilo de tomate. Às nove.	ovos caipira|0.5|dúzia; tomate|1|kg	09:00
+25	L2	normal	Dona Cida, dois quilos e meio de macaxeira, por favor. Busco às dez e quinze.	macaxeira|2.5|kg	10:15
+26	L1	normal	Oi! Um cacho de banana prata e três quilos de batata-doce. Lá pelo meio-dia eu passo.	banana prata|1|cacho; batata-doce|3|kg	12:00
+27	L2	normal	Dona Cida, me separa um molho de coentro e um quilo de jerimum. Passo às oito.	coentro|1|molho; jerimum|1|kg	08:00
+28	L1	normal	Bom dia, é a Lúcia. Dois quilos de tomate, um pé de alface e meio quilo de feijão verde. Às sete e meia.	tomate|2|kg; alface|1|pé; feijão verde|0.5|kg	07:30
+29	L2	normal	Dona Cida, separa um pedaço de abóbora de dois quilos pra mim. Passo às dez.	jerimum|2|kg	10:00
+30	L1	fora	Dona Cida, tem pimentão? Separa meio quilo. Busco às onze.	?|0.5|kg	11:00
