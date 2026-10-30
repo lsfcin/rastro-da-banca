@@ -15,7 +15,7 @@ fluxograma e a arquitetura (`arquitetura.md`, folha `artefatos/flx/excelente.md`
 
 | Subdirectory | Description |
 |--------------|-------------|
-| [`resultados/`](resultados/CONTEXT.md) | As tabelas que os pilotos imprimem (e1.md, e2.md), cada pedido de cada condição (e1-pedidos.tsv, e2-pedidos.tsv) e as respostas guardadas do Gemini, que deixam o E2 rodar de novo sem a API. |
+| [`resultados/`](resultados/CONTEXT.md) | As tabelas que os pilotos imprimem (e1.md, e2.md), cada pedido de cada condição (e1-pedidos.tsv, e2-pedidos.tsv) e as respostas guardadas do DeepSeek (respostas.tsv), que deixam os dois rodarem de novo sem a API. |
 
 | File | Interface | API | Description |
 |------|-----------|-----|-------------|
@@ -26,8 +26,9 @@ fluxograma e a arquitetura (`arquitetura.md`, folha `artefatos/flx/excelente.md`
 | [`experimentos.md`](experimentos.md) | — | — | rastro da banca · desenho dos experimentos |
 | [`gerar_audios.py`](gerar_audios.py) | [`gerar_audios.pyi`](gerar_audios.pyi) | `voz_do_pedido`, `gerar` | gerar_audios.py — os áudios do piloto: cada fala do gabarito em voz sintética (Piper, 4 vozes pt_BR), com o burburinho de outras falas por baixo, em três níveis de ruído; saem em .ogg (opus), como o WhatsApp manda. |
 | [`medir_no_celular.py`](medir_no_celular.py) | [`medir_no_celular.pyi`](medir_no_celular.pyi) | `medir` | medir_no_celular.py — a medida que o tec e o flx deixaram em aberto: o whisper rodando no celular, pelo whisper.cpp, sobre os 30 áudios do E1 a 10 dB, com as mesmas regras e o mesmo julgamento do avaliar.py; mede pedido exato, erro sem aviso, tempo / áudio, carga do modelo e memória. |
+| [`nuvem.py`](nuvem.py) | [`nuvem.pyi`](nuvem.pyi) | `instrucoes`, `responder` | nuvem.py — um modelo de linguagem na nuvem (DeepSeek V4.1 Flash, pelo OpenRouter) respondendo num formato json fixo: a persona do E2 e o pipeline alternativo do E1. cada resposta fica guardada, e a rodada seguinte não chama a rede. |
 | [`regras.py`](regras.py) | [`regras.pyi`](regras.pyi) | `normalizar`, `hora_de_buscar`, `nos_nomes_da_banca`, `extrair_pedido` | regras.py — os passos 4 a 6 do fluxograma, sem IA: acha cada produto na lista da banca (fora dela vira "?"), a quantidade e a unidade por uma tabela de palavras, e a hora de buscar por uma tabela de expressões. |
 | [`requirements.txt`](requirements.txt) | — | — | requirements.txt — a única dependência do exemplo, na versão em que ele foi rodado. |
-| [`simular_feirante.py`](simular_feirante.py) | [`simular_feirante.pyi`](simular_feirante.pyi) | `condicao_a`, `condicao_b`, `simular` | simular_feirante.py — o piloto simulado do experimento 2: uma persona de IA (Gemini, que ouve o áudio) faz o papel da dona Cida nas duas condições, A (ouve e anota, como hoje) e B (confere a tela do app no passo 7 e só ouve se quiser), em quadrado latino. testa o protocolo e os instrumentos; não diz nada sobre pessoas. |
+| [`simular_feirante.py`](simular_feirante.py) | [`simular_feirante.pyi`](simular_feirante.pyi) | `condicao_a`, `condicao_b`, `simular` | simular_feirante.py — o piloto simulado do experimento 2: uma persona de IA (DeepSeek V4.1 Flash, pelo OpenRouter) faz o papel da dona Cida nas duas condições, A (ouve e anota, como hoje) e B (confere a tela do app no passo 7 e só ouve se quiser), em 4 execuções simuladas, uma por sequência de ordem e lista. o ouvido dela é o whisper large-v3-turbo; na… |
 | [`transcrever.py`](transcrever.py) | [`transcrever.pyi`](transcrever.pyi) | `carregar_modelo`, `extrair_pedido`, `transcrever` | transcrever.py — o exemplo oficial do faster-whisper (README do projeto, seção "Usage", licença MIT), com a entrada e a saída trocadas para a feira: entra o áudio de um pedido mandado à banca, sai o pedido (produto, quantidade, hora de buscar), tirado da transcrição pelas regras de regras.py. o modelo pequeno local (qwen3:4b no Ollama, licença Apache 2.0)… |
 <!-- routing:end -->

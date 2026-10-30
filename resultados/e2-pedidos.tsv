@@ -1,0 +1,271 @@
+ouvido	execucao	condicao	lista	id	tipo	app_errou_sem_aviso	ouviu	corrigiu	trocas	tokens	exato	sinalizado	silencioso	acertos	itens_certos	itens_saida
+turbo	S1	A	L1	01	normal	False	True	False	0	672	True	False	False	2	2	2
+turbo	S1	A	L1	03	normal	False	True	False	0	1456	False	True	False	2	2	3
+turbo	S1	A	L1	05	normal	False	True	False	0	861	True	False	False	2	2	2
+turbo	S1	A	L1	07	normal	True	True	False	0	1596	True	False	False	2	2	2
+turbo	S1	A	L1	09	normal	False	True	False	0	694	False	False	True	2	2	2
+turbo	S1	A	L1	11	normal	True	True	False	0	976	True	False	False	1	1	1
+turbo	S1	A	L1	13	normal	False	True	False	0	763	True	False	False	3	3	3
+turbo	S1	A	L1	15	normal	False	True	False	0	710	False	False	True	2	2	2
+turbo	S1	A	L1	17	fora	False	True	False	0	2203	True	False	False	2	2	2
+turbo	S1	A	L1	19	fora	False	True	False	0	804	False	True	False	1	1	1
+turbo	S1	A	L1	21	vazio	False	True	False	0	588	True	False	False	0	0	0
+turbo	S1	A	L1	24	normal	False	True	False	0	1395	True	False	False	2	2	2
+turbo	S1	A	L1	26	normal	False	True	False	0	788	False	True	False	2	2	2
+turbo	S1	A	L1	28	normal	False	True	False	0	1660	True	False	False	3	3	3
+turbo	S1	A	L1	30	fora	True	True	False	0	627	True	False	False	1	1	1
+turbo	S1	B	L2	02	normal	True	True	True	5	3435	True	False	False	2	2	2
+turbo	S1	B	L2	04	normal	False	False	False	0	1900	False	True	False	2	2	2
+turbo	S1	B	L2	06	normal	False	True	True	1	2459	True	False	False	1	1	1
+turbo	S1	B	L2	08	normal	False	False	False	0	1017	True	False	False	2	2	2
+turbo	S1	B	L2	10	normal	True	False	False	0	1302	False	False	True	1	2	1
+turbo	S1	B	L2	12	normal	False	False	False	0	1292	False	True	False	1	2	1
+turbo	S1	B	L2	14	normal	True	True	True	2	1255	False	False	True	0	1	1
+turbo	S1	B	L2	16	normal	False	True	True	2	1908	True	False	False	2	2	2
+turbo	S1	B	L2	18	fora	False	True	True	2	1567	False	True	False	1	2	2
+turbo	S1	B	L2	20	fora	False	True	False	0	3379	True	False	False	2	2	2
+turbo	S1	B	L2	22	vazio	False	True	False	0	1071	True	False	False	0	0	0
+turbo	S1	B	L2	23	ruído	False	True	True	3	3774	False	False	True	0	0	2
+turbo	S1	B	L2	25	normal	False	False	False	0	957	True	False	False	1	1	1
+turbo	S1	B	L2	27	normal	False	False	False	0	994	True	False	False	2	2	2
+turbo	S1	B	L2	29	normal	False	False	False	0	924	True	False	False	1	1	1
+turbo	S2	B	L1	01	normal	False	False	False	0	871	True	False	False	2	2	2
+turbo	S2	B	L1	03	normal	False	True	True	2	4839	False	True	False	2	2	2
+turbo	S2	B	L1	05	normal	False	False	False	0	912	True	False	False	2	2	2
+turbo	S2	B	L1	07	normal	True	True	True	3	1829	True	False	False	2	2	2
+turbo	S2	B	L1	09	normal	False	False	False	0	2092	False	True	False	2	2	2
+turbo	S2	B	L1	11	normal	True	True	True	2	1665	True	False	False	1	1	1
+turbo	S2	B	L1	13	normal	False	False	False	0	1076	True	False	False	3	3	3
+turbo	S2	B	L1	15	normal	False	False	False	0	693	True	False	False	2	2	2
+turbo	S2	B	L1	17	fora	False	True	False	0	1271	True	False	False	2	2	2
+turbo	S2	B	L1	19	fora	False	True	True	1	1369	True	False	False	1	1	1
+turbo	S2	B	L1	21	vazio	False	True	False	0	1117	True	False	False	0	0	0
+turbo	S2	B	L1	24	normal	False	False	False	0	1440	True	False	False	2	2	2
+turbo	S2	B	L1	26	normal	False	False	False	0	1604	False	True	False	2	2	2
+turbo	S2	B	L1	28	normal	False	False	False	0	2008	False	True	False	3	3	3
+turbo	S2	B	L1	30	fora	True	True	True	2	1406	True	False	False	1	1	1
+turbo	S2	A	L2	02	normal	True	True	False	0	960	False	False	True	2	2	2
+turbo	S2	A	L2	04	normal	False	True	False	0	2138	True	False	False	2	2	2
+turbo	S2	A	L2	06	normal	False	True	False	0	738	False	False	True	1	1	1
+turbo	S2	A	L2	08	normal	False	True	False	0	661	True	False	False	2	2	2
+turbo	S2	A	L2	10	normal	True	True	False	0	3058	False	True	False	1	2	2
+turbo	S2	A	L2	12	normal	False	True	False	0	7117	False	False	True	0	2	0
+turbo	S2	A	L2	14	normal	True	True	False	0	758	False	False	True	0	1	1
+turbo	S2	A	L2	16	normal	False	True	False	0	1002	True	False	False	2	2	2
+turbo	S2	A	L2	18	fora	False	True	False	0	780	False	True	False	1	2	2
+turbo	S2	A	L2	20	fora	False	True	False	0	1892	True	False	False	2	2	2
+turbo	S2	A	L2	22	vazio	False	True	False	0	563	True	False	False	0	0	0
+turbo	S2	A	L2	23	ruído	False	True	False	0	2415	False	False	True	0	0	2
+turbo	S2	A	L2	25	normal	False	True	False	0	596	True	False	False	1	1	1
+turbo	S2	A	L2	27	normal	False	True	False	0	696	False	True	False	2	2	2
+turbo	S2	A	L2	29	normal	False	True	False	0	1968	True	False	False	1	1	1
+turbo	S3	A	L2	02	normal	True	True	False	0	872	True	False	False	2	2	2
+turbo	S3	A	L2	04	normal	False	True	False	0	1499	False	False	True	2	2	2
+turbo	S3	A	L2	06	normal	False	True	False	0	849	False	False	True	1	1	1
+turbo	S3	A	L2	08	normal	False	True	False	0	683	True	False	False	2	2	2
+turbo	S3	A	L2	10	normal	True	True	False	0	1903	False	True	False	1	2	2
+turbo	S3	A	L2	12	normal	False	True	False	0	4270	False	False	True	1	2	2
+turbo	S3	A	L2	14	normal	True	True	False	0	2222	False	False	True	0	1	1
+turbo	S3	A	L2	16	normal	False	True	False	0	1188	True	False	False	2	2	2
+turbo	S3	A	L2	18	fora	False	True	False	0	1108	False	True	False	1	2	2
+turbo	S3	A	L2	20	fora	False	True	False	0	3151	True	False	False	2	2	2
+turbo	S3	A	L2	22	vazio	False	True	False	0	567	True	False	False	0	0	0
+turbo	S3	A	L2	23	ruído	False	True	False	0	3245	False	False	True	0	0	2
+turbo	S3	A	L2	25	normal	False	True	False	0	792	True	False	False	1	1	1
+turbo	S3	A	L2	27	normal	False	True	False	0	752	True	False	False	2	2	2
+turbo	S3	A	L2	29	normal	False	True	False	0	786	False	True	False	0	1	1
+turbo	S3	B	L1	01	normal	False	False	False	0	1063	True	False	False	2	2	2
+turbo	S3	B	L1	03	normal	False	True	True	2	6660	False	True	False	2	2	2
+turbo	S3	B	L1	05	normal	False	False	False	0	920	True	False	False	2	2	2
+turbo	S3	B	L1	07	normal	True	True	True	3	2094	True	False	False	2	2	2
+turbo	S3	B	L1	09	normal	False	False	False	0	2560	False	True	False	2	2	2
+turbo	S3	B	L1	11	normal	True	True	True	2	1669	True	False	False	1	1	1
+turbo	S3	B	L1	13	normal	False	False	False	0	879	True	False	False	3	3	3
+turbo	S3	B	L1	15	normal	False	False	False	0	597	True	False	False	2	2	2
+turbo	S3	B	L1	17	fora	False	True	False	0	1803	True	False	False	2	2	2
+turbo	S3	B	L1	19	fora	False	True	True	1	2095	True	False	False	1	1	1
+turbo	S3	B	L1	21	vazio	False	True	False	0	1345	True	False	False	0	0	0
+turbo	S3	B	L1	24	normal	False	False	False	0	1536	True	False	False	2	2	2
+turbo	S3	B	L1	26	normal	False	False	False	0	2330	False	True	False	2	2	2
+turbo	S3	B	L1	28	normal	False	False	False	0	1182	False	True	False	3	3	3
+turbo	S3	B	L1	30	fora	True	True	True	2	2606	True	False	False	1	1	1
+turbo	S4	B	L2	02	normal	True	True	True	5	2928	True	False	False	2	2	2
+turbo	S4	B	L2	04	normal	False	False	False	0	1725	False	True	False	2	2	2
+turbo	S4	B	L2	06	normal	False	False	False	0	785	False	True	False	1	1	1
+turbo	S4	B	L2	08	normal	False	True	False	0	2079	True	False	False	2	2	2
+turbo	S4	B	L2	10	normal	True	False	False	0	684	False	False	True	1	2	1
+turbo	S4	B	L2	12	normal	False	False	False	0	1037	False	True	False	1	2	1
+turbo	S4	B	L2	14	normal	True	True	True	2	2030	False	False	True	0	1	1
+turbo	S4	B	L2	16	normal	False	True	True	2	1382	True	False	False	2	2	2
+turbo	S4	B	L2	18	fora	False	True	True	2	1710	False	True	False	1	2	2
+turbo	S4	B	L2	20	fora	False	True	False	0	2312	True	False	False	2	2	2
+turbo	S4	B	L2	22	vazio	False	True	False	0	1200	True	False	False	0	0	0
+turbo	S4	B	L2	23	ruído	False	True	True	3	7181	False	False	True	0	0	2
+turbo	S4	B	L2	25	normal	False	False	False	0	569	True	False	False	1	1	1
+turbo	S4	B	L2	27	normal	False	False	False	0	1206	True	False	False	2	2	2
+turbo	S4	B	L2	29	normal	False	False	False	0	697	True	False	False	1	1	1
+turbo	S4	A	L1	01	normal	False	True	False	0	748	True	False	False	2	2	2
+turbo	S4	A	L1	03	normal	False	True	False	0	1789	False	True	False	2	2	3
+turbo	S4	A	L1	05	normal	False	True	False	0	790	True	False	False	2	2	2
+turbo	S4	A	L1	07	normal	True	True	False	0	2625	False	True	False	1	2	2
+turbo	S4	A	L1	09	normal	False	True	False	0	885	True	False	False	2	2	2
+turbo	S4	A	L1	11	normal	True	True	False	0	1209	True	False	False	1	1	1
+turbo	S4	A	L1	13	normal	False	True	False	0	671	True	False	False	3	3	3
+turbo	S4	A	L1	15	normal	False	True	False	0	640	True	False	False	2	2	2
+turbo	S4	A	L1	17	fora	False	True	False	0	2334	True	False	False	2	2	2
+turbo	S4	A	L1	19	fora	False	True	False	0	894	False	True	False	1	1	1
+turbo	S4	A	L1	21	vazio	False	True	False	0	933	True	False	False	0	0	0
+turbo	S4	A	L1	24	normal	False	True	False	0	1736	True	False	False	2	2	2
+turbo	S4	A	L1	26	normal	False	True	False	0	627	False	True	False	2	2	2
+turbo	S4	A	L1	28	normal	False	True	False	0	1701	True	False	False	3	3	3
+turbo	S4	A	L1	30	fora	True	True	False	0	1042	True	False	False	1	1	1
+fala certa	S1	A	L1	01	normal	False	True	False	0	812	True	False	False	2	2	2
+fala certa	S1	A	L1	03	normal	False	True	False	0	826	True	False	False	2	2	2
+fala certa	S1	A	L1	05	normal	False	True	False	0	667	True	False	False	2	2	2
+fala certa	S1	A	L1	07	normal	True	True	False	0	727	True	False	False	2	2	2
+fala certa	S1	A	L1	09	normal	False	True	False	0	651	True	False	False	2	2	2
+fala certa	S1	A	L1	11	normal	True	True	False	0	890	True	False	False	1	1	1
+fala certa	S1	A	L1	13	normal	False	True	False	0	687	True	False	False	3	3	3
+fala certa	S1	A	L1	15	normal	False	True	False	0	646	True	False	False	2	2	2
+fala certa	S1	A	L1	17	fora	False	True	False	0	2191	True	False	False	2	2	2
+fala certa	S1	A	L1	19	fora	False	True	False	0	940	True	False	False	1	1	1
+fala certa	S1	A	L1	21	vazio	False	True	False	0	513	True	False	False	0	0	0
+fala certa	S1	A	L1	24	normal	False	True	False	0	966	True	False	False	2	2	2
+fala certa	S1	A	L1	26	normal	False	True	False	0	794	True	False	False	2	2	2
+fala certa	S1	A	L1	28	normal	False	True	False	0	1660	True	False	False	3	3	3
+fala certa	S1	A	L1	30	fora	True	True	False	0	1147	True	False	False	1	1	1
+fala certa	S1	B	L2	02	normal	True	True	True	5	2980	True	False	False	2	2	2
+fala certa	S1	B	L2	04	normal	False	False	False	0	1900	False	True	False	2	2	2
+fala certa	S1	B	L2	06	normal	False	True	True	1	2340	True	False	False	1	1	1
+fala certa	S1	B	L2	08	normal	False	False	False	0	1017	True	False	False	2	2	2
+fala certa	S1	B	L2	10	normal	True	False	False	0	1302	False	False	True	1	2	1
+fala certa	S1	B	L2	12	normal	False	False	False	0	1292	False	True	False	1	2	1
+fala certa	S1	B	L2	14	normal	True	True	True	2	1324	True	False	False	1	1	1
+fala certa	S1	B	L2	16	normal	False	True	True	2	2527	True	False	False	2	2	2
+fala certa	S1	B	L2	18	fora	False	True	True	2	1275	True	False	False	2	2	2
+fala certa	S1	B	L2	20	fora	False	True	False	0	1591	True	False	False	2	2	2
+fala certa	S1	B	L2	22	vazio	False	True	False	0	948	True	False	False	0	0	0
+fala certa	S1	B	L2	23	ruído	False	True	False	0	991	True	False	False	0	0	0
+fala certa	S1	B	L2	25	normal	False	False	False	0	957	True	False	False	1	1	1
+fala certa	S1	B	L2	27	normal	False	False	False	0	994	True	False	False	2	2	2
+fala certa	S1	B	L2	29	normal	False	False	False	0	924	True	False	False	1	1	1
+fala certa	S2	B	L1	01	normal	False	False	False	0	871	True	False	False	2	2	2
+fala certa	S2	B	L1	03	normal	False	True	True	3	2304	True	False	False	2	2	2
+fala certa	S2	B	L1	05	normal	False	False	False	0	912	True	False	False	2	2	2
+fala certa	S2	B	L1	07	normal	True	True	True	3	1261	True	False	False	2	2	2
+fala certa	S2	B	L1	09	normal	False	False	False	0	2092	False	True	False	2	2	2
+fala certa	S2	B	L1	11	normal	True	True	True	2	1203	True	False	False	1	1	1
+fala certa	S2	B	L1	13	normal	False	False	False	0	1076	True	False	False	3	3	3
+fala certa	S2	B	L1	15	normal	False	False	False	0	693	True	False	False	2	2	2
+fala certa	S2	B	L1	17	fora	False	True	False	0	1423	True	False	False	2	2	2
+fala certa	S2	B	L1	19	fora	False	True	True	1	1299	True	False	False	1	1	1
+fala certa	S2	B	L1	21	vazio	False	True	False	0	1176	True	False	False	0	0	0
+fala certa	S2	B	L1	24	normal	False	False	False	0	1440	True	False	False	2	2	2
+fala certa	S2	B	L1	26	normal	False	False	False	0	1604	False	True	False	2	2	2
+fala certa	S2	B	L1	28	normal	False	False	False	0	2008	False	True	False	3	3	3
+fala certa	S2	B	L1	30	fora	True	True	True	2	2063	True	False	False	1	1	1
+fala certa	S2	A	L2	02	normal	True	True	False	0	848	True	False	False	2	2	2
+fala certa	S2	A	L2	04	normal	False	True	False	0	664	True	False	False	2	2	2
+fala certa	S2	A	L2	06	normal	False	True	False	0	796	False	False	True	0	1	0
+fala certa	S2	A	L2	08	normal	False	True	False	0	837	True	False	False	2	2	2
+fala certa	S2	A	L2	10	normal	True	True	False	0	981	True	False	False	2	2	2
+fala certa	S2	A	L2	12	normal	False	True	False	0	767	True	False	False	2	2	2
+fala certa	S2	A	L2	14	normal	True	True	False	0	772	True	False	False	1	1	1
+fala certa	S2	A	L2	16	normal	False	True	False	0	695	False	False	True	2	2	2
+fala certa	S2	A	L2	18	fora	False	True	False	0	1121	True	False	False	2	2	2
+fala certa	S2	A	L2	20	fora	False	True	False	0	1793	True	False	False	2	2	2
+fala certa	S2	A	L2	22	vazio	False	True	False	0	854	True	False	False	0	0	0
+fala certa	S2	A	L2	23	ruído	False	True	False	0	651	True	False	False	0	0	0
+fala certa	S2	A	L2	25	normal	False	True	False	0	596	True	False	False	1	1	1
+fala certa	S2	A	L2	27	normal	False	True	False	0	869	True	False	False	2	2	2
+fala certa	S2	A	L2	29	normal	False	True	False	0	1685	False	False	True	1	1	1
+fala certa	S3	A	L2	02	normal	True	True	False	0	858	False	False	True	1	2	2
+fala certa	S3	A	L2	04	normal	False	True	False	0	896	True	False	False	2	2	2
+fala certa	S3	A	L2	06	normal	False	True	False	0	565	True	False	False	1	1	1
+fala certa	S3	A	L2	08	normal	False	True	False	0	1189	True	False	False	2	2	2
+fala certa	S3	A	L2	10	normal	True	True	False	0	836	False	False	True	2	2	2
+fala certa	S3	A	L2	12	normal	False	True	False	0	1319	False	False	True	2	2	2
+fala certa	S3	A	L2	14	normal	True	True	False	0	700	True	False	False	1	1	1
+fala certa	S3	A	L2	16	normal	False	True	False	0	689	True	False	False	2	2	2
+fala certa	S3	A	L2	18	fora	False	True	False	0	1106	True	False	False	2	2	2
+fala certa	S3	A	L2	20	fora	False	True	False	0	1495	True	False	False	2	2	2
+fala certa	S3	A	L2	22	vazio	False	True	False	0	459	True	False	False	0	0	0
+fala certa	S3	A	L2	23	ruído	False	True	False	0	467	True	False	False	0	0	0
+fala certa	S3	A	L2	25	normal	False	True	False	0	792	True	False	False	1	1	1
+fala certa	S3	A	L2	27	normal	False	True	False	0	696	True	False	False	2	2	2
+fala certa	S3	A	L2	29	normal	False	True	False	0	1766	True	False	False	1	1	1
+fala certa	S3	B	L1	01	normal	False	False	False	0	1063	True	False	False	2	2	2
+fala certa	S3	B	L1	03	normal	False	True	True	3	3639	True	False	False	2	2	2
+fala certa	S3	B	L1	05	normal	False	False	False	0	920	True	False	False	2	2	2
+fala certa	S3	B	L1	07	normal	True	True	True	3	1724	True	False	False	2	2	2
+fala certa	S3	B	L1	09	normal	False	False	False	0	2560	False	True	False	2	2	2
+fala certa	S3	B	L1	11	normal	True	True	True	2	1553	True	False	False	1	1	1
+fala certa	S3	B	L1	13	normal	False	False	False	0	879	True	False	False	3	3	3
+fala certa	S3	B	L1	15	normal	False	False	False	0	597	True	False	False	2	2	2
+fala certa	S3	B	L1	17	fora	False	True	False	0	1417	True	False	False	2	2	2
+fala certa	S3	B	L1	19	fora	False	True	True	1	1314	True	False	False	1	1	1
+fala certa	S3	B	L1	21	vazio	False	True	False	0	1325	True	False	False	0	0	0
+fala certa	S3	B	L1	24	normal	False	False	False	0	1536	True	False	False	2	2	2
+fala certa	S3	B	L1	26	normal	False	False	False	0	2330	False	True	False	2	2	2
+fala certa	S3	B	L1	28	normal	False	False	False	0	1182	False	True	False	3	3	3
+fala certa	S3	B	L1	30	fora	True	True	True	2	2433	True	False	False	1	1	1
+fala certa	S4	B	L2	02	normal	True	True	True	5	2855	True	False	False	2	2	2
+fala certa	S4	B	L2	04	normal	False	False	False	0	1725	False	True	False	2	2	2
+fala certa	S4	B	L2	06	normal	False	False	False	0	785	False	True	False	1	1	1
+fala certa	S4	B	L2	08	normal	False	True	False	0	1892	True	False	False	2	2	2
+fala certa	S4	B	L2	10	normal	True	False	False	0	684	False	False	True	1	2	1
+fala certa	S4	B	L2	12	normal	False	False	False	0	1037	False	True	False	1	2	1
+fala certa	S4	B	L2	14	normal	True	True	True	2	1307	True	False	False	1	1	1
+fala certa	S4	B	L2	16	normal	False	True	True	2	1506	True	False	False	2	2	2
+fala certa	S4	B	L2	18	fora	False	True	True	2	1255	True	False	False	2	2	2
+fala certa	S4	B	L2	20	fora	False	True	False	0	2684	True	False	False	2	2	2
+fala certa	S4	B	L2	22	vazio	False	True	False	0	1207	True	False	False	0	0	0
+fala certa	S4	B	L2	23	ruído	False	True	False	0	1148	True	False	False	0	0	0
+fala certa	S4	B	L2	25	normal	False	False	False	0	569	True	False	False	1	1	1
+fala certa	S4	B	L2	27	normal	False	False	False	0	1206	True	False	False	2	2	2
+fala certa	S4	B	L2	29	normal	False	False	False	0	697	True	False	False	1	1	1
+fala certa	S4	A	L1	01	normal	False	True	False	0	670	True	False	False	2	2	2
+fala certa	S4	A	L1	03	normal	False	True	False	0	1689	True	False	False	2	2	2
+fala certa	S4	A	L1	05	normal	False	True	False	0	930	True	False	False	2	2	2
+fala certa	S4	A	L1	07	normal	True	True	False	0	816	True	False	False	2	2	2
+fala certa	S4	A	L1	09	normal	False	True	False	0	1024	True	False	False	2	2	2
+fala certa	S4	A	L1	11	normal	True	True	False	0	709	True	False	False	1	1	1
+fala certa	S4	A	L1	13	normal	False	True	False	0	726	True	False	False	3	3	3
+fala certa	S4	A	L1	15	normal	False	True	False	0	682	True	False	False	2	2	2
+fala certa	S4	A	L1	17	fora	False	True	False	0	1028	True	False	False	2	2	2
+fala certa	S4	A	L1	19	fora	False	True	False	0	1166	True	False	False	1	1	1
+fala certa	S4	A	L1	21	vazio	False	True	False	0	537	True	False	False	0	0	0
+fala certa	S4	A	L1	24	normal	False	True	False	0	1870	True	False	False	2	2	2
+fala certa	S4	A	L1	26	normal	False	True	False	0	679	True	False	False	2	2	2
+fala certa	S4	A	L1	28	normal	False	True	False	0	1701	True	False	False	3	3	3
+fala certa	S4	A	L1	30	fora	True	True	False	0	814	True	False	False	1	1	1
+—	—	sem conferência	L1	01	normal	False	False	False	0	0	True	False	False	2	2	2
+—	—	sem conferência	L2	02	normal	True	False	False	0	0	False	False	True	1	2	4
+—	—	sem conferência	L1	03	normal	False	False	False	0	0	False	True	False	1	2	2
+—	—	sem conferência	L2	04	normal	False	False	False	0	0	False	True	False	2	2	2
+—	—	sem conferência	L1	05	normal	False	False	False	0	0	True	False	False	2	2	2
+—	—	sem conferência	L2	06	normal	False	False	False	0	0	False	True	False	1	1	1
+—	—	sem conferência	L1	07	normal	True	False	False	0	0	False	False	True	0	2	0
+—	—	sem conferência	L2	08	normal	False	False	False	0	0	True	False	False	2	2	2
+—	—	sem conferência	L1	09	normal	False	False	False	0	0	False	True	False	2	2	2
+—	—	sem conferência	L2	10	normal	True	False	False	0	0	False	False	True	1	2	1
+—	—	sem conferência	L1	11	normal	True	False	False	0	0	False	False	True	0	1	0
+—	—	sem conferência	L2	12	normal	False	False	False	0	0	False	True	False	1	2	1
+—	—	sem conferência	L1	13	normal	False	False	False	0	0	True	False	False	3	3	3
+—	—	sem conferência	L2	14	normal	True	False	False	0	0	False	False	True	0	1	0
+—	—	sem conferência	L1	15	normal	False	False	False	0	0	True	False	False	2	2	2
+—	—	sem conferência	L2	16	normal	False	False	False	0	0	False	True	False	1	2	2
+—	—	sem conferência	L1	17	fora	False	False	False	0	0	True	False	False	2	2	2
+—	—	sem conferência	L2	18	fora	False	False	False	0	0	False	True	False	1	2	2
+—	—	sem conferência	L1	19	fora	False	False	False	0	0	False	True	False	1	1	1
+—	—	sem conferência	L2	20	fora	False	False	False	0	0	True	False	False	2	2	2
+—	—	sem conferência	L1	21	vazio	False	False	False	0	0	True	False	False	0	0	0
+—	—	sem conferência	L2	22	vazio	False	False	False	0	0	True	False	False	0	0	0
+—	—	sem conferência	L2	23	ruído	False	False	False	0	0	True	False	False	0	0	0
+—	—	sem conferência	L1	24	normal	False	False	False	0	0	True	False	False	2	2	2
+—	—	sem conferência	L2	25	normal	False	False	False	0	0	True	False	False	1	1	1
+—	—	sem conferência	L1	26	normal	False	False	False	0	0	False	True	False	2	2	2
+—	—	sem conferência	L2	27	normal	False	False	False	0	0	True	False	False	2	2	2
+—	—	sem conferência	L1	28	normal	False	False	False	0	0	False	True	False	3	3	3
+—	—	sem conferência	L2	29	normal	False	False	False	0	0	True	False	False	1	1	1
+—	—	sem conferência	L1	30	fora	True	False	False	0	0	False	False	True	0	1	0

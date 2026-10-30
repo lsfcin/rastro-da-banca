@@ -29,8 +29,8 @@ regras que substituem o qwen (`regras.py`) e os dois pilotos, com as tabelas em 
 ```bash
 pip install -r requirements.txt
 python transcrever.py audios/pedido-*.ogg
-python avaliar.py                       # piloto do E1; a ablação do qwen pede: ollama pull qwen3:4b
-python simular_feirante.py              # piloto do E2; pede GEMINI_API_KEY, ou usa as respostas guardadas
+python avaliar.py                       # piloto do E1; mede só as condições que faltam em resultados/e1-pedidos.tsv
+python simular_feirante.py              # piloto do E2; pede OPENROUTER_API_KEY, ou usa as respostas guardadas
 ```
 
 Na primeira vez o whisper é baixado (cerca de 0,5 GB; com o qwen, 3 GB). Roda em CPU, sem GPU.
@@ -46,4 +46,5 @@ Para rodar o commit 1 (o exemplo oficial): `git checkout 89a3ba4 && python trans
 | `audio.mp3` | o áudio de teste do exemplo oficial | `tests/data/jfk.flac` do faster-whisper, convertido | MIT |
 | `audios/pedido-*.ogg` | três pedidos de feira, com ruído de fundo | voz sintética [Piper](https://github.com/rhasspy/piper), `pt_BR-faber-medium` | CC0 |
 | `audios/e1/*.ogg` | os 30 pedidos do gabarito, em 3 níveis de ruído (`gerar_audios.py`) | Piper, vozes `pt_BR` faber, cadu, jeff e edresson | CC0 |
-| a persona do E2 | faz o papel da feirante no piloto, ouvindo o áudio | Gemini (`gemini-3.5-flash`), pela API do Google | termos da API |
+| whisper `large-v3-turbo` | o ouvido da persona do E2 e o pipeline alternativo do E1 | [mobiuslabsgmbh/faster-whisper-large-v3-turbo](https://huggingface.co/mobiuslabsgmbh/faster-whisper-large-v3-turbo) | MIT |
+| DeepSeek V4.1 Flash (`nuvem.py`) | a persona do E2, que lê o que o turbo ouviu, e o pipeline alternativo do E1 | [OpenRouter](https://openrouter.ai/deepseek/deepseek-v4.1-flash) | termos da API |

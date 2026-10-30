@@ -74,6 +74,27 @@ O pré-registro acima fica como foi escrito. O que um revisor externo achou nele
 4. **os áudios ficam até o fim do E2,** que os reusa, e não só até o gabarito.
 5. **o limiar não muda.**
 
+## emendas, depois do piloto do E1 e antes do E2 (30/10/2026)
+
+Quando estas entraram, a tabela do E1 já era conhecida (20% de erro sem aviso a 10 dB). As comparações
+novas são exploratórias, e um segundo revisor externo leu o desenho antes de rodar.
+
+6. **o E2 trocou de persona:** o Gemini, que ouvia o áudio, saiu por cota. agora o ouvido dela é o
+   whisper large-v3-turbo, e ela é o DeepSeek V4.1 Flash, que lê o que o turbo ouviu
+   (`OPENROUTER_API_KEY` no lugar de `GEMINI_API_KEY`). os erros do ouvido dela tendem a coincidir
+   com os do app; uma rodada com a fala certa no lugar do turbo dá o teto do que o "ouvir" corrige.
+7. **4 execuções simuladas, não participantes:** as 4 combinações de ordem e lista. uma semente não
+   faz uma pessoa.
+8. **a correção que o limiar conta:** pedidos corrigidos (houve alguma mudança); as trocas contam à parte.
+9. **duas linhas de base:** o jeito de hoje e o competidor mais forte. no E1, um pipeline alternativo
+   maior, na nuvem (turbo + DeepSeek), nos mesmos pedidos e com o mesmo julgamento; ele não representa
+   o Anota AI nem o agente da Meta. no E2, esses competidores não rodam no piloto, porque o fluxo deles
+   pede pessoas; entra a ablação "sem conferência".
+10. **duas falhas de métrica, para o experimento real:** um "?" faz o pedido inteiro contar como
+    avisado, mesmo com outro campo errado calado; e repetir o "?" de um produto fora da lista conta
+    como exato. o experimento real mede erro e aviso por campo (produto, quantidade, hora). os 20%
+    ficam como estão.
+
 ## termo de consentimento (lido em voz alta)
 
 > Esta é uma pesquisa da UFRPE sobre um aplicativo que transforma áudio de pedido em lista. Você

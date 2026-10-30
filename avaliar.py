@@ -7,9 +7,10 @@ from collections import Counter
 import numpy as np
 from faster_whisper import decode_audio
 
+import nuvem
 import regras
 import transcrever
-from dados import PASTA, ler_gabarito
+from dados import PASTA, ler_banca, ler_gabarito
 from gerar_audios import RUIDOS, SAIDA, TAXA, voz_do_pedido
 
 # condição → (modelo do whisper, com a lista da banca como contexto?, quem tira o pedido do texto)
@@ -19,6 +20,8 @@ CONDICOES = {
     "whisper tiny": ("tiny", True, "regras"),
     "whisper base": ("base", True, "regras"),
     "qwen3:4b no lugar das regras": ("small", True, "qwen"),
+    # depois do pré-registro (emenda de 30/10): outro caminho com IA, maior e na nuvem, nos mesmos pedidos e critérios
+    "pipeline alternativo: turbo + DeepSeek": ("large-v3-turbo", True, "nuvem"),
 }
 RESULTADOS = PASTA / "resultados"
 DIGITOS = {str(numero): palavra for palavra, numero in regras.NUMEROS.items() if palavra not in ("uma", "duas", "meio", "meia")}
@@ -59,7 +62,7 @@ def julgar(certo, saida):
 
 
 def _transcricoes(pedidos, tamanho, com_contexto):
-    """(id, ruído) → (texto, segundos de transcrição, segundos de áudio), um modelo carregado uma vez."""
+    """(id, ruído) → (texto, tempo / áudio), e a carga do modelo, carregado uma vez."""
     inicio = time.perf_counter()
     modelo = transcrever.carregar_modelo(tamanho)
     carga = time.perf_counter() - inicio
@@ -69,8 +72,32 @@ def _transcricoes(pedidos, tamanho, com_contexto):
             audio = str(SAIDA / f"{pedido['id']}-{ruido}.ogg")
             inicio = time.perf_counter()
             texto = transcrever.transcrever(modelo, audio, transcrever.CONTEXTO if com_contexto else None)
-            saida[pedido["id"], ruido] = (texto, time.perf_counter() - inicio, len(decode_audio(audio)) / TAXA)
+            saida[pedido["id"], ruido] = (texto, (time.perf_counter() - inicio) / (len(decode_audio(audio)) / TAXA))
     return saida, carga
+
+
+def _ler_tsv(caminho):
+    with open(caminho, encoding="utf-8") as arquivo:
+        return list(csv.DictReader(arquivo, delimiter="\t"))
+
+
+def _escrever_tsv(caminho, linhas):
+    caminho.parent.mkdir(exist_ok=True)
+    with open(caminho, "w", encoding="utf-8", newline="") as arquivo:
+        escritor = csv.DictWriter(arquivo, fieldnames=list(linhas[0]), delimiter="\t")
+        escritor.writeheader()
+        escritor.writerows(linhas)
+
+
+def _extrair(extrator, texto, banca):
+    """quem tira o pedido do texto: as regras, o qwen local ou o modelo na nuvem; os dois últimos traduzidos para os nomes da banca."""
+    if extrator == "regras":
+        return regras.extrair_pedido(texto, banca)
+    if extrator == "qwen":
+        return regras.nos_nomes_da_banca(transcrever.extrair_pedido(texto), banca)
+    pedido, _ = nuvem.responder("Tire o pedido desta transcrição de um áudio mandado a uma banca de feira. "
+                                + nuvem.instrucoes(banca) + "\nTranscrição: " + texto, transcrever.PEDIDO, 0)
+    return regras.nos_nomes_da_banca(pedido, banca)
 
 
 def _intervalo(valores, sorteio):
@@ -78,28 +105,42 @@ def _intervalo(valores, sorteio):
     return np.mean(valores), *np.percentile(medias, [2.5, 97.5])
 
 
+def _medir(condicao, pedidos, banca):
+    """uma condição → uma linha por pedido e ruído."""
+    tamanho, com_contexto, extrator = CONDICOES[condicao]
+    textos, carga = _transcricoes(pedidos, tamanho, com_contexto)
+    linhas = []
+    for (id_, ruido), (texto, rtf) in textos.items():
+        certo = next(pedido for pedido in pedidos if pedido["id"] == id_)
+        linhas.append({"condicao": condicao, "id": id_, "ruido": ruido, "tipo": certo["tipo"],
+                       "voz": voz_do_pedido(certo), "ouvido": texto,
+                       "wer": wer(certo["fala"], texto) if certo["fala"] else "", "rtf": rtf, "carga": carga,
+                       **julgar(certo, _extrair(extrator, texto, banca))})
+    return linhas
+
+
+def _ja_medidas():
+    """condição → as linhas que já estão no e1-pedidos.tsv. elas ficam como foram medidas: rodar de novo
+    não muda o tempo, nem a resposta do qwen, que roda sem semente."""
+    if not (RESULTADOS / "e1-pedidos.tsv").exists():
+        return {}
+    medidas = {}
+    for linha in _ler_tsv(RESULTADOS / "e1-pedidos.tsv"):
+        linha.update({campo: linha[campo] == "True" for campo in ("exato", "sinalizado", "silencioso")})
+        linha.update({campo: float(linha[campo]) for campo in ("rtf", "carga", "acertos", "itens_certos", "itens_saida")})
+        linha["wer"] = float(linha["wer"]) if linha["wer"] else ""
+        medidas.setdefault(linha["condicao"], []).append(linha)
+    return medidas
+
+
 def avaliar():
-    pedidos, sorteio, linhas, cargas, cache = ler_gabarito(), np.random.default_rng(7), [], {}, {}
-    for condicao, (tamanho, com_contexto, extrator) in CONDICOES.items():
-        if (tamanho, com_contexto) not in cache:
-            cache[tamanho, com_contexto], cargas[tamanho] = _transcricoes(pedidos, tamanho, com_contexto)
-        for (id_, ruido), (texto, segundos, duracao) in cache[tamanho, com_contexto].items():
-            certo = next(pedido for pedido in pedidos if pedido["id"] == id_)
-            saida = (regras.extrair_pedido(texto) if extrator == "regras"
-                     else regras.nos_nomes_da_banca(transcrever.extrair_pedido(texto)))
-            linhas.append({"condicao": condicao, "id": id_, "ruido": ruido, "tipo": certo["tipo"],
-                           "voz": voz_do_pedido(certo), "ouvido": texto,
-                           "wer": wer(certo["fala"], texto) if certo["fala"] else "", "rtf": segundos / duracao,
-                           **julgar(certo, saida)})
-    RESULTADOS.mkdir(exist_ok=True)
-    with open(RESULTADOS / "e1-pedidos.tsv", "w", encoding="utf-8", newline="") as arquivo:
-        escritor = csv.DictWriter(arquivo, fieldnames=list(linhas[0]), delimiter="\t")
-        escritor.writeheader()
-        escritor.writerows(linhas)
-    _resumir(linhas, cargas, sorteio)
+    pedidos, banca, medidas = ler_gabarito(), ler_banca(), _ja_medidas()
+    linhas = [linha for condicao in CONDICOES for linha in (medidas.get(condicao) or _medir(condicao, pedidos, banca))]
+    _escrever_tsv(RESULTADOS / "e1-pedidos.tsv", linhas)
+    _resumir(linhas, np.random.default_rng(7))
 
 
-def _resumir(linhas, cargas, sorteio):
+def _resumir(linhas, sorteio):
     cabecalho = "| condição | ruído | pedido exato | errado com \"?\" | errado sem aviso | F1 dos itens | WER | tempo / áudio |"
     tabela = [cabecalho, "|" + ":--|" * 2 + "--:|" * 6]
     for condicao in CONDICOES:
@@ -115,6 +156,7 @@ def _resumir(linhas, cargas, sorteio):
             tabela.append(f"| {condicao} | {ruido} | {exato[0]:.0%} [{exato[1]:.0%}–{exato[2]:.0%}] | {sinalizado:.0%} | "
                           f"{silencioso[0]:.0%} [{silencioso[1]:.0%}–{silencioso[2]:.0%}] | {f1:.2f} | {np.mean(wers):.2f} | {rtf:.2f} |")
     tabela.append("")
+    cargas = {CONDICOES[linha["condicao"]][0]: linha["carga"] for linha in linhas}
     tabela.append("carga do modelo, em segundos: " + ", ".join(f"{tamanho} {segundos:.1f}" for tamanho, segundos in cargas.items()))
     (RESULTADOS / "e1.md").write_text("# E1 · piloto da bancada técnica\n\n" + "\n".join(tabela) + "\n", encoding="utf-8")
     print("\n".join(tabela))
