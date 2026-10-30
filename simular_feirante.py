@@ -133,7 +133,7 @@ def _resumir(linhas):
     armadilhas = [linha for linha in linhas if linha["condicao"] == "B" and linha["app_errou_sem_aviso"]]
     aceitas = sum(not linha["ouviu"] for linha in armadilhas)
     tabela += ["", f"erros silenciosos do app na condição B: {len(armadilhas)}; confirmados sem ouvir: {aceitas}"]
-    (RESULTADOS / "e2.md").write_text("\n".join(tabela) + "\n", encoding="utf-8")
+    (RESULTADOS / "e2.md").write_text("# E2 · piloto simulado\n\n" + "\n".join(tabela) + "\n", encoding="utf-8")
     print("\n".join(tabela))
 
 
